@@ -1,0 +1,4 @@
+<resources>
+  <string name="app_name">Last.FM Charts</string>
+  <string name="exception_instance_not_a_base_activity">Activity must be an instance of Base Activity!</string>
+</resources>
