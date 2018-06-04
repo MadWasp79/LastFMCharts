@@ -1,9 +1,10 @@
 package com.mwhive.lastfmcharts.base;
 
 
-import android.app.Application;
+
+import com.mwhive.lastfmcharts.data.ChartServiceModule;
+import com.mwhive.lastfmcharts.networking.ServiceModule;
 import dagger.Component;
-import dagger.Provides;
 import javax.inject.Singleton;
 
 /**
@@ -14,6 +15,8 @@ import javax.inject.Singleton;
 @Component(modules = {
     ApplicationModule.class,
     ActivityBindingModule.class,
+    ServiceModule.class,
+    ChartServiceModule.class
 })
 public interface ApplicationComponent {
 

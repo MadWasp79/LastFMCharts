@@ -15,9 +15,9 @@ import javax.inject.Provider;
 
 /**
  * Created by MadWasp79 on 01-Jun-18.
+ * Handles injection of our screens
  */
 @ActivityScope
-
 public class ScreenInjector {
 
   private final Map<Class<? extends Controller>, Provider<AndroidInjector.Factory<? extends Controller>>> screenInjectors;
@@ -40,6 +40,7 @@ public class ScreenInjector {
       return;
     }
 
+    @SuppressWarnings("unchecked")
     AndroidInjector.Factory<Controller> injectorFactory =
         (AndroidInjector.Factory<Controller>) screenInjectors.get(controller.getClass()).get();
     AndroidInjector<Controller> injector = injectorFactory.create(controller);

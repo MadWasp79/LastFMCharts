@@ -16,6 +16,7 @@ import com.bluelinelabs.conductor.Router;
 import com.mwhive.lastfmcharts.R;
 import com.mwhive.lastfmcharts.di.Injector;
 import com.mwhive.lastfmcharts.di.ScreenInjector;
+import com.mwhive.lastfmcharts.ui.ScreenNavigator;
 import java.util.UUID;
 import javax.inject.Inject;
 
@@ -35,6 +36,7 @@ public abstract class BaseActivity extends AppCompatActivity {
   private Router router;
 
   @Inject ScreenInjector screenInjector;
+  @Inject ScreenNavigator screenNavigator;
 
 
 
@@ -53,10 +55,31 @@ public abstract class BaseActivity extends AppCompatActivity {
       throw new NullPointerException("Activity must have a view with id: screen_container");
     }
     router = Conductor.attachRouter(this, screenContainer, savedInstanceState);
+    screenNavigator.initWithRouter(router, initialScreen());
     monitorBackStack();
     super.onCreate(savedInstanceState);
   }
 
+  @Override
+  public void onBackPressed() {
+    if(!screenNavigator.pop()){
+      super.onBackPressed();
+    }
+  }
+
+  @Override
+  protected void onDestroy() {
+    super.onDestroy();
+    screenNavigator.clear();
+    if (isFinishing()){
+      Injector.clearComponent(this);
+    }
+  }
+
+  //Since this app will use only one activity, I could have provide there our initial screen (ChartScreenController),
+  //but for the sake of re-usability and option to add more activities late we will use abstract method so that every
+  //derived activity subclass explicitly specify it starting root Controller.
+  protected abstract Controller initialScreen();
 
   @LayoutRes
   protected abstract int layoutRes();
@@ -69,14 +92,6 @@ public abstract class BaseActivity extends AppCompatActivity {
 
   public String getInstanceId() {
     return instanceId;
-  }
-
-  @Override
-  protected void onDestroy() {
-    super.onDestroy();
-    if (isFinishing()){
-      Injector.clearComponent(this);
-    }
   }
 
   public ScreenInjector getScreenInjector() {
