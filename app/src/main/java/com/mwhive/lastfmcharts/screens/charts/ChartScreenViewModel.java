@@ -14,17 +14,21 @@ import timber.log.Timber;
 /**
  * Created by MadWasp79 on 03-Jun-18.
  * Self-explanatory. ViewModel with  Consumer => BehaviorRelays => Observable for Charts(first) screen.
+ * Helps us decouple View and Presenter, save View state on Screen orientation change.
  */
 
 @ScreenScope
-class ChartsScreenViewModel {
+class ChartScreenViewModel {
 
   private final BehaviorRelay<List<Artist>> artistsChartRelay = BehaviorRelay.create();
   private final BehaviorRelay<Integer> errorRelay = BehaviorRelay.create();
   private final BehaviorRelay<Boolean> loadingRelay= BehaviorRelay.create();
 
+  private final BehaviorRelay<Integer> countrySelectorRelay = BehaviorRelay.create();
+  private final BehaviorRelay<Integer> countryImageRelay = BehaviorRelay.create();
+
   @Inject
-  ChartsScreenViewModel() {
+  ChartScreenViewModel() {
 
   }
 
@@ -32,7 +36,7 @@ class ChartsScreenViewModel {
     return loadingRelay;
   }
 
-  Observable<List<Artist>> artistsChart() {
+  Observable<List<Artist>> artists() {
     return artistsChartRelay;
   }
 
@@ -40,11 +44,15 @@ class ChartsScreenViewModel {
     return errorRelay;
   }
 
+  Observable<Integer> country() {return countrySelectorRelay;}
+
+  Observable<Integer> selectorState() {return countryImageRelay;}
+
   Consumer<Boolean> loadingUpdated() {
     return loadingRelay;
   }
 
-  Consumer<List<Artist>> artistsChartUpdated() {
+  Consumer<List<Artist>> artistsUpdated() {
     errorRelay.accept(-1);
     return artistsChartRelay;
   }
@@ -56,5 +64,12 @@ class ChartsScreenViewModel {
     };
   }
 
+  Consumer<Integer> countrySelected(){
+    return countrySelectorRelay;
+  }
+
+  Consumer<Integer> countrySelectorUpdated(){
+    return countryImageRelay;
+  }
 
 }

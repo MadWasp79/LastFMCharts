@@ -19,7 +19,7 @@ public interface ChartService {
   String api_key = "e6ad07e029401f90f5c0314dffe370c3";
 
   //returns object with list of Artists
-  @GET("?method=geo.gettopartists&format=json&api_key=e6ad07e029401f90f5c0314dffe370c3&limit=20")
+  @GET("?method=geo.gettopartists&format=json&api_key=e6ad07e029401f90f5c0314dffe370c3&limit=50")
   Single<Charts> getCharts(
       @Query("country") String country);
 

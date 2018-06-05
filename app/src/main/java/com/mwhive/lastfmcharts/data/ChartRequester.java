@@ -9,6 +9,7 @@ import javax.inject.Inject;
 
 /**
  * Created by MadWasp79 on 03-Jun-18.
+ * Used by Presenters to fetch data
  */
 
 public class ChartRequester {

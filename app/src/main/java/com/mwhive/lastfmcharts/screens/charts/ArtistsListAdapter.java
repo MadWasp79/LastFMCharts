@@ -4,7 +4,6 @@ package com.mwhive.lastfmcharts.screens.charts;
 import android.support.annotation.NonNull;
 import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +19,6 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
-import timber.log.Timber;
 
 /**
  * Created by MadWasp79 on 04-Jun-18.
@@ -56,7 +54,7 @@ public class ArtistsListAdapter extends RecyclerView.Adapter<ArtistsListAdapter.
 
   void setData(List<Artist> artists) {
     if (artists != null) {
-      DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(new ChartsDiffCallback(data, artists));
+      DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(new ChartDiffCallback(data, artists));
       data.clear();
       data.addAll(artists);
       diffResult.dispatchUpdatesTo(this);
@@ -88,7 +86,7 @@ public class ArtistsListAdapter extends RecyclerView.Adapter<ArtistsListAdapter.
     void bind(Artist _artist, int position) {
       this.artist = _artist;
 
-      String nameWithPosition = "#" + (position+1) + " : " + artist.artistName();
+      String nameWithPosition = artist.artistName();
       String imageUrl = artist.artistImages().get(2).imageUrl();
 
       artistName.setText(nameWithPosition);

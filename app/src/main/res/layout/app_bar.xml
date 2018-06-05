@@ -8,7 +8,7 @@
   
   <android.support.v7.widget.Toolbar
     android:id="@+id/toolbar"
-    app:titleTextColor="@color/toolbar_text_color"
+    app:titleTextColor="@color/colorText"
     android:layout_width="match_parent"
     android:layout_height="match_parent"/>
 

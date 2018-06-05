@@ -8,7 +8,7 @@
   android:orientation="horizontal"
   android:layout_marginLeft="12dp"
   android:layout_marginRight="12dp"
-  android:layout_marginTop="2dp"
+  android:layout_marginTop="4dp"
   android:layout_marginBottom="2dp"
   android:background="@drawable/rounded_colors_bg"
   android:elevation="8dp"
@@ -17,8 +17,8 @@
 
   <ImageView
     android:id="@+id/iv_charts_artist"
-    android:layout_width="72dp"
-    android:layout_height="72dp"
+    android:layout_width="60dp"
+    android:layout_height="60dp"
     android:layout_margin="4dp"
     app:srcCompat="@drawable/ic_artist_72dp"/>
 
@@ -34,12 +34,12 @@
 
     <TextView
       android:id="@+id/tv_charts_artist_name"
-      android:textStyle="bold"
+      android:textAllCaps="true"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginRight="4dp"
-      android:textColor="@color/item_text_color"
-      android:textSize="20sp"
+      android:textColor="@color/colorPrimaryText"
+      android:textSize="18sp"
       tools:text="#1: Artist Name"
       android:maxLines="1"/>
 
@@ -59,7 +59,7 @@
         android:id="@+id/tv_charts_artist_listeners"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/item_text_color"
+        android:textColor="@color/colorPrimaryText"
         tools:text="12345678"/>
 
     </LinearLayout>

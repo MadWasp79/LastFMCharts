@@ -1,22 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
+<android.support.constraint.ConstraintLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
-  android:layout_height="match_parent">
+  android:layout_height="match_parent"
+  >
+
+  <ImageView
+    android:id="@+id/artist_foto_image_view"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="24dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:src="@drawable/gradient_shape"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    android:background="@drawable/lastfm_logo_black"/>
+
+  <TextView
+    android:id="@+id/country_name"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:text="@string/last_fm_charts"
+    android:textStyle="bold"
+    android:textColor="@color/colorAccent"
+    android:textSize="24sp"
+    app:layout_constraintBottom_toBottomOf="@+id/artist_foto_image_view"
+    app:layout_constraintEnd_toEndOf="@+id/artist_foto_image_view"
+    app:layout_constraintStart_toStartOf="@+id/artist_foto_image_view"
+    app:layout_constraintTop_toTopOf="@+id/artist_foto_image_view"
+    app:layout_constraintVertical_bias="0.16000003"
+    />
+
+  <android.support.design.widget.FloatingActionButton
+    android:id="@+id/country_select_fab"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:clickable="true"
+    app:backgroundTint="@color/colorAccent"
+    app:layout_constraintBottom_toBottomOf="@+id/country_name"
+    app:layout_constraintEnd_toEndOf="@+id/artist_foto_image_view"
+    app:layout_constraintHorizontal_bias="0.92"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="@+id/country_name"
+    app:layout_constraintVertical_bias="0.100000024"
+    app:srcCompat="@drawable/ic_arrow_back"/>
 
   <FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:layout_marginTop="100dp"
+    android:layout_marginStart="32dp"
+    android:layout_marginEnd="32dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.0"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/country_name"
+    >
 
     <android.support.v7.widget.RecyclerView
       android:id="@+id/top_artists_list"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:paddingTop="@dimen/content_top_padding"
-      android:clipToPadding="false"/>
+      android:clipToPadding="true"
+      android:requiresFadingEdge="vertical"/>
+
 
     <ProgressBar
       android:id="@+id/loading_indicator"
@@ -25,7 +81,6 @@
       android:layout_gravity="center"
       android:indeterminate="true"
       android:visibility="gone"/>
-
     <TextView
       android:id="@+id/tv_error"
       android:layout_width="wrap_content"
@@ -34,5 +89,47 @@
       android:visibility="gone"/>
 
   </FrameLayout>
-</android.support.design.widget.CoordinatorLayout>
+  <android.support.design.widget.FloatingActionButton
+    android:id="@+id/country_one_fab"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="16dp"
+    app:backgroundTint="@color/colorAccent"
+    android:visibility="invisible"
+    app:elevation="6dp"
+    app:layout_constraintEnd_toEndOf="@+id/country_select_fab"
+    app:layout_constraintTop_toBottomOf="@+id/country_select_fab"
+    app:pressedTranslationZ="12dp"
+    app:srcCompat="@drawable/ukraine"
+/>
 
+  <android.support.design.widget.FloatingActionButton
+    android:id="@+id/country_two_fab"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="8dp"
+    app:backgroundTint="@color/colorAccent"
+    android:visibility="invisible"
+    app:elevation="6dp"
+    app:layout_constraintBottom_toBottomOf="@+id/country_one_fab"
+    app:layout_constraintEnd_toStartOf="@+id/country_one_fab"
+    app:layout_constraintTop_toTopOf="@+id/country_one_fab"
+    app:pressedTranslationZ="12dp"
+    app:srcCompat="@drawable/israel"/>
+
+  <android.support.design.widget.FloatingActionButton
+    android:id="@+id/country_three_fab"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="8dp"
+    app:backgroundTint="@color/colorAccent"
+    android:visibility="invisible"
+    app:elevation="6dp"
+    app:layout_constraintBottom_toBottomOf="@+id/country_two_fab"
+    app:layout_constraintEnd_toStartOf="@+id/country_two_fab"
+    app:layout_constraintTop_toTopOf="@+id/country_two_fab"
+    app:pressedTranslationZ="12dp"
+    app:srcCompat="@drawable/united_kingdom"/>
+
+
+</android.support.constraint.ConstraintLayout>

@@ -9,12 +9,12 @@ import java.util.List;
  * Created by MadWasp79 on 04-Jun-18.
  */
 
-public class ChartsDiffCallback extends DiffUtil.Callback {
+public class ChartDiffCallback extends DiffUtil.Callback {
 
   private final List<Artist> oldList;
   private final List<Artist> newList;
 
-  public ChartsDiffCallback(List<Artist> oldList, List<Artist> newList) {
+  public ChartDiffCallback(List<Artist> oldList, List<Artist> newList) {
     this.oldList = oldList;
     this.newList = newList;
   }

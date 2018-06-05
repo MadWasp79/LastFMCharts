@@ -2,5 +2,6 @@
   <string name="app_name">Last.FM Charts</string>
   <string name="exception_instance_not_a_base_activity">Activity must be an instance of Base Activity!</string>
   <string name="api_error_chart">Error loading charts</string>
-  <string name="listeners_sign">Total Listeners:</string>
+  <string name="listeners_sign">listeners worldwide:</string>
+  <string name="last_fm_charts">LAST.FM CHARTS</string>
 </resources>
