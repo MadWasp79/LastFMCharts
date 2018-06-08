@@ -4,4 +4,6 @@
   <string name="api_error_chart">Error loading charts</string>
   <string name="listeners_sign">listeners worldwide:</string>
   <string name="last_fm_charts">LAST.FM CHARTS</string>
+  <string name="error_loading_album_info">Error loading Album info</string>
+  <string name="error_loading_artist_info">Error loading Artist Info</string>
 </resources>

@@ -48,6 +48,8 @@ class ChartScreenViewModel {
 
   Observable<Integer> selectorState() {return countryImageRelay;}
 
+
+
   Consumer<Boolean> loadingUpdated() {
     return loadingRelay;
   }

@@ -8,8 +8,8 @@ import com.squareup.moshi.Json;
 
 @AutoValue
 public abstract class Artist {
-
-  public abstract int _id();
+  @Json(name = "mbid")
+  public abstract String mbid();
 
   @Json(name = "name")
   public abstract String artistName();

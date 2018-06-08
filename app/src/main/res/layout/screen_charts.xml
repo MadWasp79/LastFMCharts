@@ -14,27 +14,27 @@
     android:layout_marginTop="24dp"
     android:layout_marginStart="8dp"
     android:layout_marginEnd="8dp"
+    android:background="@drawable/lastfm"
     android:src="@drawable/gradient_shape"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    android:background="@drawable/lastfm_logo_black"/>
+    app:layout_constraintTop_toTopOf="parent"/>
 
   <TextView
-    android:id="@+id/country_name"
+    android:id="@+id/album_title"
+    android:textStyle="bold"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginStart="8dp"
     android:layout_marginEnd="8dp"
     android:text="@string/last_fm_charts"
-    android:textStyle="bold"
-    android:textColor="@color/colorAccent"
+    android:textColor="@color/colorPrimary"
     android:textSize="24sp"
     app:layout_constraintBottom_toBottomOf="@+id/artist_foto_image_view"
     app:layout_constraintEnd_toEndOf="@+id/artist_foto_image_view"
     app:layout_constraintStart_toStartOf="@+id/artist_foto_image_view"
     app:layout_constraintTop_toTopOf="@+id/artist_foto_image_view"
-    app:layout_constraintVertical_bias="0.16000003"
+    app:layout_constraintVertical_bias="0.19999999"
     />
 
   <android.support.design.widget.FloatingActionButton
@@ -45,25 +45,25 @@
     android:layout_marginEnd="8dp"
     android:clickable="true"
     app:backgroundTint="@color/colorAccent"
-    app:layout_constraintBottom_toBottomOf="@+id/country_name"
+    app:layout_constraintBottom_toBottomOf="@+id/album_title"
     app:layout_constraintEnd_toEndOf="@+id/artist_foto_image_view"
     app:layout_constraintHorizontal_bias="0.92"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="@+id/country_name"
+    app:layout_constraintTop_toTopOf="@+id/album_title"
     app:layout_constraintVertical_bias="0.100000024"
     app:srcCompat="@drawable/ic_arrow_back"/>
 
   <FrameLayout
     android:layout_width="0dp"
     android:layout_height="0dp"
-    android:layout_marginTop="100dp"
+    android:layout_marginTop="72dp"
     android:layout_marginStart="32dp"
     android:layout_marginEnd="32dp"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintHorizontal_bias="0.0"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/country_name"
+    app:layout_constraintTop_toBottomOf="@+id/album_title"
     >
 
     <android.support.v7.widget.RecyclerView

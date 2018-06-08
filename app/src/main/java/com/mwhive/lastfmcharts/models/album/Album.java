@@ -1,11 +1,15 @@
 package com.mwhive.lastfmcharts.models.album;
 
+
 import com.google.auto.value.AutoValue;
+import com.squareup.moshi.Json;
 import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.Moshi;
 import java.util.List;
-import com.squareup.moshi.Json;
 
+/**
+ * Created by MadWasp79 on 08-Jun-18.
+ */
 @AutoValue
 public abstract class Album {
 
@@ -28,7 +32,7 @@ public abstract class Album {
   public abstract String playCount();
 
   @Json(name = "tracks")
-  public abstract List<Track> tracks();
+  public abstract Tracks tracks();
 
   @Json(name = "wiki")
   public abstract Wiki wiki();

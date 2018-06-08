@@ -15,6 +15,10 @@ public interface ScreenNavigator {
 
   boolean pop();
 
+  void goToAlbums(String artistName, String artistPlaycount, String artistImageUrl);
+
+  void goToAlbumDetails(String artistName, String albumName);
+
   void clear();
 
 }

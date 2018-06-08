@@ -5,6 +5,7 @@ import android.annotation.SuppressLint;
 import com.mwhive.lastfmcharts.data.ChartRequester;
 import com.mwhive.lastfmcharts.di.ScreenScope;
 import com.mwhive.lastfmcharts.models.charts.Artist;
+import com.mwhive.lastfmcharts.ui.ScreenNavigator;
 import javax.inject.Inject;
 import timber.log.Timber;
 
@@ -16,15 +17,20 @@ class ChartScreenPresenter implements ArtistsListAdapter.ArtistClickListener {
 
   private final ChartScreenViewModel viewModel;
   private final ChartRequester chartRequester;
+  private final ScreenNavigator navigator;
 
   private String country = "ukraine";
   private int countryCode = 1;
 
 
   @Inject
-  ChartScreenPresenter(ChartScreenViewModel viewModel, ChartRequester chartRequester) {
+  ChartScreenPresenter(
+      ChartScreenViewModel viewModel,
+      ChartRequester chartRequester,
+      ScreenNavigator navigator) {
     this.viewModel = viewModel;
     this.chartRequester = chartRequester;
+    this.navigator = navigator;
     loadCharts(country);
     switchCountry();
   }
@@ -72,10 +78,14 @@ class ChartScreenPresenter implements ArtistsListAdapter.ArtistClickListener {
     }
   }
 
-
-
   @Override
   public void onArtistClicked(Artist artist) {
-    Timber.d("artist clicked: " + artist.artistName());
+
+    String artistListeners = artist.listeners() + "";
+    navigator.goToAlbums(
+        artist.artistName(),
+        artistListeners,
+        artist.artistImages().get(3).imageUrl());
+
   }
 }

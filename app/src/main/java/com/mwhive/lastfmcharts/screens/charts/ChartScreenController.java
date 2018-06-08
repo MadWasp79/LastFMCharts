@@ -30,7 +30,6 @@ public class ChartScreenController extends BaseController {
   @BindView(R.id.top_artists_list) RecyclerView artistList;
   @BindView(R.id.loading_indicator) View loadingView;
   @BindView(R.id.tv_error) TextView errorText;
-
   @BindView(R.id.country_select_fab) FloatingActionButton countrySelectFab;
   @BindView(R.id.country_one_fab) FloatingActionButton selectCountryOne;
   @BindView(R.id.country_two_fab) FloatingActionButton selectCountryTwo;

@@ -7,84 +7,90 @@
   android:layout_height="match_parent"
   >
 
-  <ImageView
-    android:id="@+id/artist_foto_image_view"
-    android:layout_width="wrap_content"
+
+  <com.mwhive.lastfmcharts.views.FixedRatioFrameView
+    android:id="@+id/fixedRatioFrameView2"
+    android:layout_width="0dp"
     android:layout_height="wrap_content"
     android:layout_marginTop="24dp"
-    android:layout_marginStart="8dp"
-    android:layout_marginEnd="8dp"
-
-    android:src="@drawable/gradient_shape"
+    android:layout_marginStart="48dp"
+    android:layout_marginEnd="48dp"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    tools:background="@drawable/album_cover_ph"/>
+    app:layout_constraintTop_toTopOf="parent">
 
+    <ImageView
+      android:id="@+id/artist_foto_image_view"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      tools:src="@drawable/album_cover_ph"/>
+
+    <ImageView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:src="@drawable/gradient_shape"/>
+  </com.mwhive.lastfmcharts.views.FixedRatioFrameView>
   <TextView
-    android:id="@+id/country_name"
+    android:id="@+id/artist_name"
+    android:textStyle="bold"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginTop="8dp"
-    android:layout_marginBottom="8dp"
-    android:layout_marginEnd="8dp"
+    android:layout_marginStart="8dp"
     android:textAppearance="@android:style/TextAppearance.Material.Large"
+    android:textColor="@color/colorAccent"
+
     android:textSize="24sp"
-    app:layout_constraintBottom_toBottomOf="@+id/artist_foto_image_view"
-    app:layout_constraintEnd_toEndOf="@+id/artist_foto_image_view"
-    app:layout_constraintHorizontal_bias="0.1"
-    app:layout_constraintStart_toEndOf="@+id/back_to_charts_fab"
-    app:layout_constraintTop_toTopOf="@+id/artist_foto_image_view"
-    app:layout_constraintVertical_bias="0.060000002"
+    app:layout_constraintBottom_toBottomOf="@+id/back_to_charts"
+    app:layout_constraintStart_toEndOf="@+id/back_to_charts"
+    app:layout_constraintTop_toTopOf="@+id/back_to_charts"
     tools:text="ARTIST NAME"/>
 
   <TextView
     android:id="@+id/playcount_tag"
     android:layout_width="wrap_content"
-    android:layout_height="0dp"
-    android:text="playcount:"
-    app:layout_constraintStart_toStartOf="@+id/country_name"
-    app:layout_constraintTop_toBottomOf="@+id/country_name"/>
+    android:layout_height="20dp"
+    android:text="listeners"
+    app:layout_constraintStart_toStartOf="@+id/artist_name"
+    app:layout_constraintTop_toBottomOf="@+id/artist_name"/>
 
-    <android.support.design.widget.FloatingActionButton
-    android:id="@+id/back_to_charts_fab"
-    android:layout_width="wrap_content"
+  <android.support.design.widget.FloatingActionButton
+    android:id="@+id/back_to_charts"
+    android:layout_width="48dp"
     android:layout_height="wrap_content"
-    android:layout_marginTop="8dp"
-    android:layout_marginBottom="8dp"
+
+    android:layout_marginTop="24dp"
     android:layout_marginStart="8dp"
     android:layout_marginEnd="8dp"
     android:clickable="true"
-    app:backgroundTint="@android:color/holo_blue_dark"
-    app:layout_constraintBottom_toBottomOf="@+id/artist_foto_image_view"
-    app:layout_constraintEnd_toEndOf="@+id/artist_foto_image_view"
-    app:layout_constraintHorizontal_bias="0.08"
+    app:backgroundTint="@color/colorAccent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.067"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="@+id/artist_foto_image_view"
-    app:layout_constraintVertical_bias="0.053"
+    app:layout_constraintTop_toTopOf="@+id/fixedRatioFrameView2"
     app:srcCompat="@drawable/ic_arrow_back"/>
 
   <TextView
     android:id="@+id/artist_playcount_tv"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginStart="4dp"
+    android:layout_marginStart="8dp"
+    android:textColor="@color/colorPrimaryText"
+    app:layout_constraintBottom_toBottomOf="@+id/playcount_tag"
     app:layout_constraintStart_toEndOf="@+id/playcount_tag"
-    app:layout_constraintTop_toBottomOf="@+id/country_name"
+    app:layout_constraintTop_toTopOf="@+id/playcount_tag"
     tools:text="123 123 123"/>
 
   <FrameLayout
     android:layout_width="0dp"
     android:layout_height="0dp"
-    android:layout_marginTop="100dp"
-    android:layout_marginBottom="16dp"
     android:layout_marginStart="32dp"
     android:layout_marginEnd="32dp"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="1.0"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/country_name"
-    >
+    app:layout_constraintTop_toBottomOf="@+id/fixedRatioFrameView2"
+    app:layout_constraintVertical_bias="0.0">
 
     <android.support.v7.widget.RecyclerView
       android:id="@+id/albums_list"
